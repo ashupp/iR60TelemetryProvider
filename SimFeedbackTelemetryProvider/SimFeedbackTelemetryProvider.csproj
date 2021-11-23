@@ -51,8 +51,5 @@
     <Compile Include="telemetry\TelemetryValue.cs" />
     <Compile Include="telemetry\UnknownTelemetryValueException.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="SimFeedbackTelemetryProvider.licenseheader" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

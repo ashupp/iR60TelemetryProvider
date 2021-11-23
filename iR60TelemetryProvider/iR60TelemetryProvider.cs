@@ -21,8 +21,8 @@ namespace SimFeedback.telemetry.iR60
         /// </summary>
         public iR60TelemetryProvider() : base()
         {
-            Author = "JamesClonk";
-            Version = "v1.0.0";
+            Author = "JamesClonk / modified by ashupp";
+            Version = "v1.1.0";
             BannerImage = @"img\banner_iracing.png"; // Image shown on top of the profiles tab
             IconImage = @"img\iracing.jpg";          // Icon used in the tree view for the profile
             TelemetryUpdateFrequency = 60;     // the update frequency in samples per second
@@ -47,8 +47,9 @@ namespace SimFeedback.telemetry.iR60
         public override string[] GetValueList()
         {
             string[] values = {
-                "Brake", "BrakeRaw", "Clutch",
+                "Brake", "BrakeABSactive", "BrakeRaw", "Clutch",
                 "CFshockDefl", "CFshockVel",
+                "dcABS", "dcABSToggle", 
                 "DriverMarker", "EngineWarnings",
                 "FuelLevel", "FuelLevelPct", "FuelPress",
                 "Gear", "HandbrakeRaw", "IsOnTrack",

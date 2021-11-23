@@ -27,6 +27,12 @@ namespace SimFeedback.telemetry.iR60
             TelemetryValue tv;
             switch (name)
             {
+                case "BrakeABSactive":
+                    data = BrakeABSactive;
+                    break;
+                case "dcABSToggle":
+                    data = dcABSToggle;
+                    break;
                 case "SlipAngle":
                     data = SlipAngle;
                     break;
@@ -92,6 +98,19 @@ namespace SimFeedback.telemetry.iR60
             if (_sdk.VarHeaders.ContainsKey(name))
             {
                 return (float)_sdk.GetData(name);
+            }
+            else
+            {
+                return defaultValue;
+            }
+        }
+
+        private float GetBool(string name, float defaultValue = 0f)
+        {
+            if (_sdk.VarHeaders.ContainsKey(name))
+            {
+                var tmpRes = (Boolean)this._sdk.GetData(name);
+                return Convert.ToSingle(tmpRes);
             }
             else
             {
@@ -196,6 +215,22 @@ namespace SimFeedback.telemetry.iR60
             get
             {
                 return (float)(GetFloat("LatAccel") * (Math.Cos(GetFloat("Roll")) / G));
+            }
+        }
+
+        private float BrakeABSactive
+        {
+            get
+            {
+                return (float)GetBool("BrakeABSactive");
+            }
+        }        
+        
+        private float dcABSToggle
+        {
+            get
+            {
+                return (float)GetBool("dcABSToggle");
             }
         }
     }
